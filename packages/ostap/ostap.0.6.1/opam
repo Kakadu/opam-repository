@@ -1,0 +1,45 @@
+opam-version: "2.0"
+synopsis: "Parser-combinator library"
+maintainer: ["Kakadu@pm.me"]
+authors: [
+  "dboulytchev@gmail.com" "danila.borovkov1996@gmail.com" "Kakadu@pm.me"
+]
+license: "LGPL-2.1-or-later"
+homepage: "https://github.com/PLTools/ostap"
+bug-reports: "https://github.com/PLTools/ostap/issues"
+depends: [
+  "dune" {>= "3.7"}
+  "ocaml" {>= "4.14"}
+  "re" {>= "1.10"}
+  "camlp5" {>= "8"}
+  "GT"
+  "ocamlfind" {build}
+  "mdx" {with-test}
+  "odig" {with-doc}
+  "odoc" {with-doc}
+  "pa_ppx" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/PLTools/ostap.git"
+url {
+  src:
+    "https://github.com/PLTools/ostap/releases/download/0.6.1/ostap-0.6.1.tbz"
+  checksum: [
+    "sha256=9681f3048dd860288b97bd981338302fd29d908efdeae6361fd2efb8399ce873"
+    "sha512=c4280697e617749b22bfe172c2bfa38921eeaa68ba83bd5d803a6981479eb76faa8667de80833c333ec4605ac753993de09f2c04d1a614ba3365079596e227d5"
+  ]
+}
+x-commit-hash: "6f023a616a1b9000f62db3e5743e478ba1c2cacd"
